@@ -1,8 +1,6 @@
-export interface Pessoa {
-nome:string; 
-sobrenome: string
-sexo: string;
-dataDeNascimento: string;
-estadoCivil: string;
+interface Pessoa {
+  nome: string;
+  sexo: string;
+  dataNascimento: string;
+  estadoCivil: string;
 }
-

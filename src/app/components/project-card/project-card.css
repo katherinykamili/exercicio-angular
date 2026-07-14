@@ -13,11 +13,9 @@
   border: 1px solid color-mix(in srgb, var(--text, #34271f) 12%, transparent);
   border-radius: clamp(1.25rem, 2.5vw, 1.8rem);
   color: var(--text, #34271f);
-  background: linear-gradient(
-    145deg,
-    color-mix(in srgb, var(--surface, #fffaf3) 94%, #fff1df 6%),
-    color-mix(in srgb, var(--surface, #fffaf3) 84%, #b8734f 16%)
-  );
+  background: linear-gradient(145deg,
+      color-mix(in srgb, var(--surface, #fffaf3) 94%, #fff1df 6%),
+      color-mix(in srgb, var(--surface, #fffaf3) 84%, #b8734f 16%));
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.72);
   flex-direction: column;
   isolation: isolate;
@@ -184,6 +182,7 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .card,
   .card-media img,
   .card-link span {

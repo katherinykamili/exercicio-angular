@@ -1,15 +1,110 @@
-:host { position: sticky; top: 14px; z-index: 20; display: block; padding: 0 14px; pointer-events: none; }
-.header { width: min(1120px, 100%); min-height: 72px; margin: 14px auto 18px; padding: 10px 12px 10px 18px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; border: 1px solid color-mix(in srgb, var(--text) 18%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--surface) 64%, transparent); box-shadow: 0 18px 50px rgba(47, 32, 22, .12); backdrop-filter: blur(22px) saturate(120%); pointer-events: auto; }
-.brand { display: inline-flex; align-items: center; gap: 10px; width: max-content; color: var(--text); text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: -.03em; }
-.brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: var(--inverse); background: var(--text); }
-nav { display: flex; align-items: center; gap: 5px; padding: 4px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent); border-radius: 999px; }
-nav a { padding: 9px 18px; border-radius: 999px; color: var(--muted); text-decoration: none; font-size: 12px; transition: color .2s, background .2s; }
-nav a:hover, nav a.active { color: var(--text); background: color-mix(in srgb, var(--surface) 72%, transparent); }
-ui-pill-button { justify-self: end; }
+:host {
+  position: sticky;
+  top: 14px;
+  z-index: 20;
+  display: block;
+  padding: 0 14px;
+  pointer-events: none;
+}
+
+.header {
+  width: min(1120px, 100%);
+  min-height: 72px;
+  margin: 14px auto 18px;
+  padding: 10px 12px 10px 18px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 64%, transparent);
+  box-shadow: 0 18px 50px rgba(47, 32, 22, .12);
+  backdrop-filter: blur(22px) saturate(120%);
+  pointer-events: auto;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -.03em;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--inverse);
+  background: var(--text);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px;
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  border-radius: 999px;
+}
+
+nav a {
+  padding: 9px 18px;
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  transition: color .2s, background .2s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+}
+
+ui-pill-button {
+  justify-self: end;
+}
+
 @media (max-width: 650px) {
-  :host { top: 8px; padding: 0 8px; }
-  .header { min-height: 60px; margin: 8px auto 12px; padding: 7px 8px 7px 12px; grid-template-columns: 1fr auto; }
-  nav { position: fixed; right: 16px; bottom: 16px; left: 16px; z-index: 30; justify-content: center; background: color-mix(in srgb, var(--surface) 88%, transparent); box-shadow: 0 14px 44px rgba(30, 20, 14, .22); backdrop-filter: blur(22px); }
-  nav a { flex: 1; text-align: center; }
-  .theme-label { display: none; }
+  :host {
+    top: 8px;
+    padding: 0 8px;
+  }
+
+  .header {
+    min-height: 60px;
+    margin: 8px auto 12px;
+    padding: 7px 8px 7px 12px;
+    grid-template-columns: 1fr auto;
+  }
+
+  nav {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    z-index: 30;
+    justify-content: center;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    box-shadow: 0 14px 44px rgba(30, 20, 14, .22);
+    backdrop-filter: blur(22px);
+  }
+
+  nav a {
+    flex: 1;
+    padding-inline: 8px;
+    text-align: center;
+  }
+
+  .theme-label {
+    display: none;
+  }
 }

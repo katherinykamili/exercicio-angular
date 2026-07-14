@@ -1,6 +1,6 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero-topline" aria-label="Especialidades">
-    <span>interfaces</span><span>com</span><span>histórias</span>
+    <span>interfaces com histórias</span>
   </div>
 
   <div class="hero-panel-wrap">
@@ -8,7 +8,8 @@
       <div class="hero-panel">
         <span class="eyebrow">Front-end developer · SC, Brasil</span>
         <h1 id="hero-title">digital<br><strong>ambience.</strong></h1>
-        <p>Transformo ideias em experiências digitais sensíveis, funcionais e memoráveis.</p>
+        <p>Sou Katheriny Kamili, estudante de desenvolvimento web front-end. Transformo ideias em experiências digitais
+          sensíveis, funcionais e memoráveis.</p>
 
         <div class="panel-actions">
           <ui-pill-button variant="outline" (activated)="scrollToProjects()">
@@ -25,46 +26,64 @@
 
 <section class="projects" id="projetos" aria-labelledby="projects-title">
   <header class="projects-heading">
-    <div>
-      <span class="eyebrow">Projetos selecionados · 2026</span>
-      <h2 id="projects-title">Stories built<br>with intention.</h2>
+    <div><span class="eyebrow">Projetos selecionados · GitHub</span>
+      <h2 id="projects-title">O que venho<br>construindo.</h2>
     </div>
-    <ui-view-switcher
-      [value]="viewMode"
-      label="Visualização"
-      (valueChange)="viewMode = $event"
-    />
+    <ui-view-switcher [value]="viewMode" label="Visualização" (valueChange)="viewMode = $event" />
   </header>
 
   <div class="project-grid" [class.project-list]="viewMode === 'list'">
-    <app-project-card
-      [layout]="viewMode"
-      eyebrow="Identidade digital"
-      meta="01 · 2026"
-      title="Memórias que vivem na tela"
-      description="Uma experiência editorial para organizar lembranças com movimento, textura e narrativa visual."
-      imageSrc="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=85"
-      imageAlt="Livro aberto em uma mesa com iluminação aconchegante"
-    />
+    <app-project-card [layout]="viewMode" eyebrow="Front-end · HTML & CSS" meta="01 · destaque" title="Coffee House"
+      description="Site fictício de uma cafeteria gourmet, criado para explorar composição visual, HTML semântico e CSS responsivo."
+      href="https://github.com/katherinykamili/coffee-house" imageSrc="/assets/setap.jpg"
+      imageAlt="Mesa de trabalho com café e caderno" />
+    <app-project-card [layout]="viewMode" eyebrow="Angular · Storybook" meta="02 · atual" title="Exercício Angular"
+      description="Este portfólio: uma interface responsiva construída com componentes standalone, design system local e documentação no Storybook."
+      href="https://github.com/katherinykamili/exercicio-angular" imageSrc="/assets/contato.jpg"
+      imageAlt="Espaço de trabalho com notebook e café" />
+    <app-project-card [layout]="viewMode" eyebrow="Integração · API" meta="03 · JavaScript"
+      title="Requisição HTTP na API"
+      description="Projeto de estudo com consumo da API JSONPlaceholder para praticar requisições e renderização de dados."
+      href="https://github.com/katherinykamili/requisicao-http-na-api"
+      imageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85"
+      imageAlt="Código em um monitor" />
+    <app-project-card [layout]="viewMode" eyebrow="Fundamentos · JavaScript" meta="04 · prática"
+      title="JavaScript básico"
+      description="Repositório de exercícios que reúne fundamentos da linguagem e a evolução dos primeiros experimentos interativos."
+      href="https://github.com/katherinykamili/javascript-basico"
+      imageSrc="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85"
+      imageAlt="Notebook com código e anotações" />
+  </div>
+</section>
 
-    <app-project-card
-      [layout]="viewMode"
-      eyebrow="Produto & experiência"
-      meta="02 · 2026"
-      title="Cinema particular, curadoria pessoal"
-      description="Uma locadora digital criada para transformar listas de filmes em uma experiência de descoberta."
-      imageSrc="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=85"
-      imageAlt="Interior de uma sala de cinema vazia"
-    />
+<section class="about-section" id="sobre" aria-labelledby="about-title">
+  <div class="section-number">01</div>
+  <div><span class="eyebrow">Sobre mim</span>
+    <h2 id="about-title">Curiosidade que<br><strong>vira interface.</strong></h2>
+  </div>
+  <p>Minha trajetória está focada em desenvolvimento web front-end. Gosto de aprender construindo: cada projeto no
+    GitHub é um registro de uma nova habilidade, de HTML e CSS a JavaScript, APIs e Angular.</p>
+  <a class="text-link" href="https://github.com/katherinykamili" target="_blank" rel="noopener noreferrer">Ver meu
+    GitHub <span>↗</span></a>
+</section>
 
-    <app-project-card
-      [layout]="viewMode"
-      eyebrow="Portfolio system"
-      meta="03 · 2026"
-      title="Uma casa digital para boas ideias"
-      description="Sistema de portfólio responsivo em Angular, construído com componentes reutilizáveis e acessíveis."
-      imageSrc="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
-      imageAlt="Interior contemporâneo com iluminação quente"
-    />
+<section class="skills-section" id="habilidades" aria-labelledby="skills-title">
+  <div><span class="eyebrow">Ferramentas e estudos</span>
+    <h2 id="skills-title">O que estou<br>aprendendo.</h2>
+  </div>
+  <div class="skill-list">
+    <span>01 · HTML semântico</span><span>02 · CSS & responsividade</span><span>03 · JavaScript</span><span>04 ·
+      Angular</span><span>05 · Consumo de APIs</span><span>06 · Git & GitHub</span>
+  </div>
+</section>
+
+<section class="next-section" aria-labelledby="next-title">
+  <span class="eyebrow">Sugestões para a próxima evolução</span>
+  <h2 id="next-title">Mais contexto,<br><strong>mais impacto.</strong></h2>
+  <div class="next-grid">
+    <p><strong>01 · Cases reais</strong><br>Conte o problema, suas decisões e o resultado de cada projeto.</p>
+    <p><strong>02 · Demonstrações online</strong><br>Adicione links para versões publicadas, além do código-fonte.</p>
+    <p><strong>03 · Perfil profissional</strong><br>Inclua uma foto, localização, disponibilidade e formas de contato.
+    </p>
   </div>
 </section>

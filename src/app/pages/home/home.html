@@ -1,6 +1,6 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero-topline" aria-label="Especialidades">
-    <span>interfaces com histórias</span>
+    <span>interfaces</span> <span>com</span> <span>histórias</span>
   </div>
 
   <div class="hero-panel-wrap">
@@ -35,24 +35,27 @@
   <div class="project-grid" [class.project-list]="viewMode === 'list'">
     <app-project-card [layout]="viewMode" eyebrow="Front-end · HTML & CSS" meta="01 · destaque" title="Coffee House"
       description="Site fictício de uma cafeteria gourmet, criado para explorar composição visual, HTML semântico e CSS responsivo."
-      href="https://github.com/katherinykamili/coffee-house" imageSrc="/assets/setap.jpg"
-      imageAlt="Mesa de trabalho com café e caderno" />
+      href="https://github.com/katherinykamili/coffee-house" imageSrc="\assets\coffeehouse.png"
+      imageAlt="Homepage da Coffee House" />
+
     <app-project-card [layout]="viewMode" eyebrow="Angular · Storybook" meta="02 · atual" title="Exercício Angular"
       description="Este portfólio: uma interface responsiva construída com componentes standalone, design system local e documentação no Storybook."
-      href="https://github.com/katherinykamili/exercicio-angular" imageSrc="/assets/contato.jpg"
-      imageAlt="Espaço de trabalho com notebook e café" />
-    <app-project-card [layout]="viewMode" eyebrow="Integração · API" meta="03 · JavaScript"
-      title="Requisição HTTP na API"
-      description="Projeto de estudo com consumo da API JSONPlaceholder para praticar requisições e renderização de dados."
-      href="https://github.com/katherinykamili/requisicao-http-na-api"
-      imageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85"
-      imageAlt="Código em um monitor" />
-    <app-project-card [layout]="viewMode" eyebrow="Fundamentos · JavaScript" meta="04 · prática"
-      title="JavaScript básico"
-      description="Repositório de exercícios que reúne fundamentos da linguagem e a evolução dos primeiros experimentos interativos."
-      href="https://github.com/katherinykamili/javascript-basico"
-      imageSrc="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85"
-      imageAlt="Notebook com código e anotações" />
+      href="https://github.com/katherinykamili/exercicio-angular" imageSrc="\assets\angular.png"
+      imageAlt="Homepage do exercício Angular" />
+
+    <app-project-card [layout]="viewMode" eyebrow="Trajetória · Desenvolvimento Web" meta="03 · JavaScript"
+      title="Trajetória durante o curso"
+      description="Minha trajetória durante o curso Desenvolvimento Web Front-End."
+      href="https://katherinykamili.github.io/Trajetoria-durante-o-curso/"
+      imageSrc="\assets\trajetoriadocurso.png"
+      imageAlt="Homepage da trajetória durante o curso" />
+
+    <app-project-card [layout]="viewMode" eyebrow="Portfólio . Profissional" meta="04 · JavaScript"
+      title="Portfólio Profissional"
+      description=" Desenvolvido com HTML5 semântico, CSS3 com variáveis e Flexbox — sem frameworks externos."
+      href="https://katherinykamili.github.io/portfolio/"
+      imageSrc="\assets\portfolioprofissional.png"
+      imageAlt="Homepage do portfólio profissional" />
   </div>
 </section>
 

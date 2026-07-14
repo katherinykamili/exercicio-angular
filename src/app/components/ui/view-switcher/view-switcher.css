@@ -1,0 +1,95 @@
+:host {
+  display: inline-block;
+}
+
+.switcher {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--muted, #76685e);
+}
+
+.switcher-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.select-shell {
+  position: relative;
+  display: block;
+}
+
+select {
+  width: 100%;
+  min-width: 9rem;
+  min-height: 44px;
+  padding: 0.65rem 2.35rem 0.65rem 2.4rem;
+  border: 1px solid color-mix(in srgb, var(--text, #32271f) 18%, transparent);
+  border-radius: 999px;
+  color: var(--text, #32271f);
+  background: color-mix(in srgb, var(--surface, #fffaf3) 88%, transparent);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 650;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select-shell::after {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  content: '';
+  pointer-events: none;
+  transform: translateY(-70%) rotate(45deg);
+}
+
+.view-icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 3px);
+  gap: 2px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.view-icon i {
+  width: 3px;
+  height: 3px;
+  border-radius: 1px;
+  background: currentColor;
+}
+
+.view-icon-list {
+  grid-template-columns: repeat(2, 8px);
+}
+
+.view-icon-list i {
+  width: 8px;
+  height: 2px;
+}
+
+select:focus-visible {
+  outline: 2px solid var(--text, #32271f);
+  outline-offset: 3px;
+}
+
+select:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+@media (max-width: 600px) {
+  :host,
+  select {
+    width: 100%;
+  }
+}

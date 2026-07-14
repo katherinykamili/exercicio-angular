@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "fa63163c-252d-4401-8f03-ad8c80c801c7"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -48,6 +49,11 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "storybook": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": false
             }
           },
           "defaultConfiguration": "production"
@@ -66,6 +72,26 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "exercicio-angular:build:storybook",
+            "port": 6006,
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "."]
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "exercicio-angular:build:storybook",
+            "outputDir": "storybook-static",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "."]
+          }
         }
       }
     }

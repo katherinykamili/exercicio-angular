@@ -1,7 +1,10 @@
-<app-header></app-header>
-<main>
-    <router-outlet></router-outlet>
-</main>
-<app-footer></app-footer>
+<app-header
+  [darkMode]="isDarkMode()"
+  (themeToggle)="toggleTheme()"
+/>
 
-<router-outlet />
+<main class="page-shell">
+  <router-outlet />
+</main>
+
+<app-footer />

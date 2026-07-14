@@ -38,6 +38,8 @@ yarn-error.log
 testem.log
 /typings
 __screenshots__/
+/storybook-static/
+/documentation.json
 
 # System files
 .DS_Store

@@ -1,12 +1,70 @@
-<section class="hero">
-    <h2>Olá, eu sou a Katheriny</h2>
-    <p>Estudante de desenvolvimento front-end, criando interfaces modernas, responsivas e elegantes.</p>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-topline" aria-label="Especialidades">
+    <span>interfaces</span><span>com</span><span>histórias</span>
+  </div>
+
+  <div class="hero-panel-wrap">
+    <ui-glass-panel padding="spacious" role="region" ariaLabel="Apresentação de Katheriny">
+      <div class="hero-panel">
+        <span class="eyebrow">Front-end developer · SC, Brasil</span>
+        <h1 id="hero-title">digital<br><strong>ambience.</strong></h1>
+        <p>Transformo ideias em experiências digitais sensíveis, funcionais e memoráveis.</p>
+
+        <div class="panel-actions">
+          <ui-pill-button variant="outline" (activated)="scrollToProjects()">
+            Explorar projetos <span aria-hidden="true">↓</span>
+          </ui-pill-button>
+          <span class="rating"><strong>4.9/5</strong> ✦ ✦ ✦ ✦ ✦ <small>creative overview</small></span>
+        </div>
+      </div>
+    </ui-glass-panel>
+  </div>
+
+  <span class="hero-caption">Design que equilibra clareza, atmosfera e intenção.</span>
 </section>
 
-<section class="cards">
-    <app-project-card title="Site de Memórias" description="Projeto com HTML, CSS e JavaScript." />
+<section class="projects" id="projetos" aria-labelledby="projects-title">
+  <header class="projects-heading">
+    <div>
+      <span class="eyebrow">Projetos selecionados · 2026</span>
+      <h2 id="projects-title">Stories built<br>with intention.</h2>
+    </div>
+    <ui-view-switcher
+      [value]="viewMode"
+      label="Visualização"
+      (valueChange)="viewMode = $event"
+    />
+  </header>
 
-    <app-project-card title="Locadora de Filmes" description="Página para cadastro de filmes favoritos." />
+  <div class="project-grid" [class.project-list]="viewMode === 'list'">
+    <app-project-card
+      [layout]="viewMode"
+      eyebrow="Identidade digital"
+      meta="01 · 2026"
+      title="Memórias que vivem na tela"
+      description="Uma experiência editorial para organizar lembranças com movimento, textura e narrativa visual."
+      imageSrc="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=85"
+      imageAlt="Livro aberto em uma mesa com iluminação aconchegante"
+    />
 
-    <app-project-card title="Portfólio Angular" description="Site pessoal criado com componentes Angular." />
+    <app-project-card
+      [layout]="viewMode"
+      eyebrow="Produto & experiência"
+      meta="02 · 2026"
+      title="Cinema particular, curadoria pessoal"
+      description="Uma locadora digital criada para transformar listas de filmes em uma experiência de descoberta."
+      imageSrc="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=85"
+      imageAlt="Interior de uma sala de cinema vazia"
+    />
+
+    <app-project-card
+      [layout]="viewMode"
+      eyebrow="Portfolio system"
+      meta="03 · 2026"
+      title="Uma casa digital para boas ideias"
+      description="Sistema de portfólio responsivo em Angular, construído com componentes reutilizáveis e acessíveis."
+      imageSrc="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"
+      imageAlt="Interior contemporâneo com iluminação quente"
+    />
+  </div>
 </section>

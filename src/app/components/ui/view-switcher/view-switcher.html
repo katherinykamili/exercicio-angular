@@ -1,0 +1,18 @@
+<label class="switcher">
+  <span class="switcher-label">{{ label }}</span>
+  <span class="select-shell">
+    <span class="view-icon" [class.view-icon-list]="value === 'list'" aria-hidden="true">
+      <i></i><i></i><i></i><i></i>
+    </span>
+    <select
+      [name]="name"
+      [value]="value"
+      [disabled]="disabled"
+      [attr.aria-label]="label"
+      (change)="onChange($event)"
+    >
+      <option value="grid">Grade</option>
+      <option value="list">Lista</option>
+    </select>
+  </span>
+</label>

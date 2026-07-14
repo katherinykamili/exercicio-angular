@@ -1,0 +1,11 @@
+<button
+  class="pill"
+  [class.pill-outline]="variant === 'outline'"
+  [type]="type"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel"
+  [attr.aria-pressed]="pressed"
+  (click)="activated.emit($event)"
+>
+  <span class="pill-content"><ng-content /></span>
+</button>

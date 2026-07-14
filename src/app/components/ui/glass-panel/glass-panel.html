@@ -1,0 +1,10 @@
+<div
+  class="panel"
+  [class.panel-compact]="padding === 'compact'"
+  [class.panel-spacious]="padding === 'spacious'"
+  [class.panel-interactive]="interactive"
+  [attr.role]="role"
+  [attr.aria-label]="ariaLabel"
+>
+  <ng-content />
+</div>

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { GlassPanel } from '../../components/ui';
 
 @Component({
   selector: 'app-contact',
-  imports: [],
+  imports: [GlassPanel],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })

@@ -1,5 +1,29 @@
-<article class="card">
-  <h3>{{ title }}</h3>
-  <p>{{ description }}</p>
-  <button>Ver projeto</button>
+<article
+  class="card"
+  [class.card-list]="layout === 'list'"
+  [class.card-has-media]="imageSrc"
+>
+  @if (imageSrc) {
+    <div class="card-media">
+      <img [src]="imageSrc" [alt]="imageAlt" />
+    </div>
+  }
+  <div class="card-copy">
+    <div class="card-kicker">
+      <span class="card-label">{{ eyebrow }}</span>
+      @if (meta) {
+        <span class="card-meta">{{ meta }}</span>
+      }
+    </div>
+    <h3>{{ title }}</h3>
+    <p>{{ description }}</p>
+  </div>
+  <a
+    [href]="href"
+    class="card-link"
+    [attr.aria-label]="linkLabel + ': ' + title"
+    (click)="projectOpen.emit($event)"
+  >
+    {{ linkLabel }} <span aria-hidden="true">↗</span>
+  </a>
 </article>

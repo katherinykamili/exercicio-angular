@@ -1,15 +1,31 @@
-import { Component, signal } from '@angular/core';
+import { Component, DOCUMENT, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SobreMim } from "./sobre-mim/sobre-mim";
-import { UsuarioComponent } from "./usuario/usuario";
-import { Compras } from "./compras/compras";
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SobreMim, UsuarioComponent, Compras, Header, Footer],
+  imports: [RouterOutlet, Header, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {}
+export class App {
+  private readonly document = inject(DOCUMENT);
+  readonly isDarkMode = signal(false);
+
+  constructor() {
+    // Recupera a preferência salva para manter o tema após atualizar a página.
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    this.setTheme(savedTheme === 'dark');
+  }
+
+  toggleTheme(): void {
+    this.setTheme(!this.isDarkMode());
+  }
+
+  private setTheme(isDark: boolean): void {
+    this.isDarkMode.set(isDark);
+    this.document.documentElement.dataset['theme'] = isDark ? 'dark' : 'light';
+    localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
+  }
+}

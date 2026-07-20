@@ -1,0 +1,28 @@
+<section id="imagem" class="image-section" aria-labelledby="image-title">
+  <div class="image-content">
+    <span class="eyebrow">Pré-visualização</span>
+    <h2 id="image-title">Veja sua imagem<br><strong>na tela.</strong></h2>
+    <label for="image-url">URL da imagem</label>
+    <input
+      id="image-url"
+      type="url"
+      inputmode="url"
+      placeholder="https://exemplo.com/imagem.jpg"
+      autocomplete="url"
+      [value]="imageUrl"
+      (input)="updateImageUrl($event)">
+  </div>
+
+  <div class="image-preview" aria-live="polite">
+    @if (imageUrl && !imageError) {
+      <img
+        [src]="imageUrl"
+        alt="Pré-visualização da URL fornecida"
+        (error)="markImageAsInvalid()">
+    } @else if (imageError) {
+      <p>Não foi possível carregar essa imagem. Verifique a URL informada.</p>
+    } @else {
+      <p>Insira uma URL para visualizar a imagem.</p>
+    }
+  </div>
+</section>

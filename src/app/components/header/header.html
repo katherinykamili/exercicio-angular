@@ -1,17 +1,8 @@
 <header class="header">
-  <a class="brand" routerLink="/" aria-label="Katheriny Dev — início">
-    <span class="brand-mark">K</span>
-    <span>Katheriny.</span>
+  <a class="brand" routerLink="/" aria-label="Katheriny Dev - início">
+    <span class="brand-mark">K</span><span>Katheriny.</span>
   </a>
-
-  <nav aria-label="Navegação principal">
-    <a routerLink="/" fragment="projetos" routerLinkActive="active">Projetos</a>
-    <a routerLink="/contato" routerLinkActive="active">Contato</a>
-  </nav>
-
-  <ui-pill-button
-    variant="outline"
-    [pressed]="darkMode"
+  <ui-pill-button variant="outline" [pressed]="darkMode"
     [ariaLabel]="darkMode ? 'Ativar modo claro' : 'Ativar modo escuro'"
     (activated)="themeToggle.emit()">
     <span aria-hidden="true">{{ darkMode ? '☀' : '☾' }}</span>

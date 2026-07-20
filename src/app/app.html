@@ -3,8 +3,9 @@
   (themeToggle)="toggleTheme()"
 />
 
-<main class="page-shell">
-  <router-outlet />
-</main>
+<div class="layout page-shell">
+  <app-navigation />
+  <main class="main-content"><router-outlet /></main>
+</div>
 
 <app-footer />

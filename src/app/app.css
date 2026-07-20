@@ -1,3 +1,7 @@
 :host { display: block; min-height: 100vh; }
 .page-shell { width: min(1440px, calc(100% - 28px)); margin: 0 auto; }
+.layout { display: flex; align-items: flex-start; gap: clamp(20px, 4vw, 56px); }
+.layout > app-navigation { flex: 0 0 170px; }
+.main-content { min-width: 0; flex: 1; }
 @media (max-width: 600px) { .page-shell { width: calc(100% - 16px); } }
+@media (max-width: 600px) { .layout { flex-direction: column; gap: 0; } .layout > app-navigation, .main-content { width: 100%; flex-basis: auto; } }

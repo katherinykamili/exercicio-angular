@@ -1,0 +1,8 @@
+:host { display: block; }
+.navigation { display: flex; flex-direction: column; gap: 18px; }
+.navigation-title { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.navigation-links { display: flex; gap: 5px; }
+.navigation a { padding: 9px 18px; border-radius: 999px; color: var(--muted); text-decoration: none; font-size: 12px; transition: color .2s, background .2s; }
+.navigation a:hover, .navigation a.active { color: var(--text); background: color-mix(in srgb, var(--surface) 72%, transparent); }
+@media (min-width: 601px) { .navigation { position: sticky; top: 110px; padding: 18px 0; } .navigation-links { flex-direction: column; } }
+@media (max-width: 600px) { .navigation { align-items: center; padding: 0 8px 12px; } .navigation-title { display: none; } .navigation-links { width: 100%; justify-content: center; padding: 4px; border: 1px solid color-mix(in srgb, var(--text) 12%, transparent); border-radius: 999px; } .navigation a { flex: 1; text-align: center; } }

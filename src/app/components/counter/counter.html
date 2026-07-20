@@ -1,0 +1,19 @@
+<section class="counter-section" aria-labelledby="counter-title">
+  <div>
+    <span class="eyebrow">Contador</span>
+    <h2 id="counter-title">Clique para contar.</h2>
+  </div>
+
+  <div class="counter-controls">
+    <button
+      class="counter-value"
+      type="button"
+      (click)="reset()"
+      aria-label="Zerar contador">
+      {{ count() }}
+    </button>
+    <button class="increment-button" type="button" (click)="increment()">
+      Incrementar
+    </button>
+  </div>
+</section>

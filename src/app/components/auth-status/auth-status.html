@@ -1,0 +1,16 @@
+<section id="autenticacao" class="auth-section" aria-labelledby="auth-title">
+  <div>
+    <span class="eyebrow">Autenticação</span>
+    <h2 id="auth-title">
+      O usuário está
+      <strong>{{ isLoggedIn ? 'logado' : 'deslogado' }}</strong>
+    </h2>
+  </div>
+
+  <button
+    type="button"
+    (click)="toggleLogin()"
+    [attr.aria-pressed]="isLoggedIn">
+    {{ isLoggedIn ? 'Deslogar' : 'Logar' }}
+  </button>
+</section>

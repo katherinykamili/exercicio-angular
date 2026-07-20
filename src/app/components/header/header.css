@@ -45,30 +45,6 @@
   background: var(--text);
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px;
-  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
-  border-radius: 999px;
-}
-
-nav a {
-  padding: 9px 18px;
-  border-radius: 999px;
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 12px;
-  transition: color .2s, background .2s;
-}
-
-nav a:hover,
-nav a.active {
-  color: var(--text);
-  background: color-mix(in srgb, var(--surface) 72%, transparent);
-}
-
 ui-pill-button {
   justify-self: end;
 }
@@ -96,12 +72,6 @@ ui-pill-button {
     background: color-mix(in srgb, var(--surface) 88%, transparent);
     box-shadow: 0 14px 44px rgba(30, 20, 14, .22);
     backdrop-filter: blur(22px);
-  }
-
-  nav a {
-    flex: 1;
-    padding-inline: 8px;
-    text-align: center;
   }
 
   .theme-label {

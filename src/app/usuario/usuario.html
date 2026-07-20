@@ -1,13 +1,24 @@
-<h1>Dados do usúário</h1>
+<section class="users-section" aria-labelledby="users-title">
+  <header>
+    <span class="eyebrow">Objetos e propriedades</span>
+    <h2 id="users-title">Usuários.</h2>
+  </header>
 
-<h2>Pessoa 1</h2>
-<p>Nome: {{ pessoa1.nome }}</p>
-<p>Sexo: {{ pessoa1.sexo }}</p>
-<p>Data de Nascimento: {{ pessoa1.dataNascimento }}</p>
-<p>Estado Civil: {{ pessoa1.estadoCivil }}</p>
+  <div class="users-grid">
+    <article>
+      <span class="person-number">Pessoa 01</span>
+      <h3>{{ pessoa1.nome }}</h3>
+      <p><strong>Sexo</strong>{{ pessoa1.sexo }}</p>
+      <p><strong>Nascimento</strong>{{ pessoa1.dataNascimento }}</p>
+      <p><strong>Estado civil</strong>{{ pessoa1.estadoCivil }}</p>
+    </article>
 
-<h2>Pessoa 2</h2>
-<p>Nome: {{ pessoa2.nome }}</p>
-<p>Sexo: {{ pessoa2.sexo }}</p>
-<p>Data de Nascimento: {{ pessoa2.dataNascimento }}</p>
-<p>Estado Civil: {{ pessoa2.estadoCivil }}</p>
+    <article>
+      <span class="person-number">Pessoa 02</span>
+      <h3>{{ pessoa2.nome }}</h3>
+      <p><strong>Sexo</strong>{{ pessoa2.sexo }}</p>
+      <p><strong>Nascimento</strong>{{ pessoa2.dataNascimento }}</p>
+      <p><strong>Estado civil</strong>{{ pessoa2.estadoCivil }}</p>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+:host { display: block; }
+.shopping-section { padding: clamp(76px, 10vw, 140px) clamp(12px, 4vw, 56px); border-top: 1px solid var(--border); }
+.eyebrow { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+h2 { margin: 14px 0 42px; color: var(--text); font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 500; line-height: .92; letter-spacing: -.075em; }
+.market-grid { display: flex; gap: 18px; }
+.market-card { min-width: 0; flex: 1; padding: 24px; border: 1px solid var(--border); border-radius: 24px; background: var(--surface); }
+h3 { margin: 0 0 24px; color: var(--text); font-size: 15px; }
+dl, dd { margin: 0; }
+dl div { padding: 10px 0; display: flex; justify-content: space-between; gap: 14px; border-bottom: 1px solid var(--border); }
+dl div:last-child { border-bottom: 0; }
+dt { color: var(--muted); font-size: 10px; }
+dd { color: var(--text); font-size: 11px; font-weight: 700; text-align: right; }
+@media (max-width: 800px) { .market-grid { flex-direction: column; } }
+@media (max-width: 600px) { .shopping-section { padding: 76px 4px; } h2 { font-size: 3.2rem; } }

@@ -1,1 +1,20 @@
-<p>compras works!</p>
+<section class="shopping-section" aria-labelledby="shopping-title">
+  <header>
+    <span class="eyebrow">Dados e interpolação</span>
+    <h2 id="shopping-title">Compras.</h2>
+  </header>
+
+  <div class="market-grid">
+    @for (unidade of unidades; track unidade.NomeMercado) {
+      <article class="market-card">
+        <h3>{{ unidade.NomeMercado }}</h3>
+        <dl>
+          <div><dt>Maçãs vendidas/ano</dt><dd>{{ unidade.NumeroMacaVendidasPorAno }}</dd></div>
+          <div><dt>Preço da maçã</dt><dd>R$ {{ unidade.PrecoVendaMaca }}</dd></div>
+          <div><dt>Laranjas vendidas/ano</dt><dd>{{ unidade.NumeroLaranjasVendidasPorAno }}</dd></div>
+          <div><dt>Preço da laranja</dt><dd>R$ {{ unidade.PrecoVendaLaranja }}</dd></div>
+        </dl>
+      </article>
+    }
+  </div>
+</section>

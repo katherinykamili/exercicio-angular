@@ -1,11 +1,28 @@
-<nav class="navigation" aria-label="Navegação principal">
-  <span class="navigation-title">Menu de navegação</span>
-  <div class="navigation-links">
-    <a routerLink="/" fragment="autenticacao">Login</a>
-    <a routerLink="/" fragment="projetos" routerLinkActive="active">Projetos</a>
-    <a routerLink="/" fragment="imagem">Imagem</a>
-    <a routerLink="/" fragment="sobre" routerLinkActive="active">Sobre</a>
-    <a routerLink="/" fragment="habilidades" routerLinkActive="active">Habilidades</a>
-    <a routerLink="/contato" routerLinkActive="active">Contato</a>
-  </div>
-</nav>
+<div class="menu-shell" [class.is-open]="menuOpen()">
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-controls="main-navigation"
+    [attr.aria-expanded]="menuOpen()"
+    [attr.aria-label]="menuOpen() ? 'Esconder menu' : 'Abrir menu'"
+    (click)="toggleMenu()">
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+  </button>
+
+  <nav
+    id="main-navigation"
+    class="navigation"
+    aria-label="Navegação principal"
+    [attr.aria-hidden]="!menuOpen()">
+    <span class="navigation-title">Menu de navegação</span>
+    <div class="navigation-links">
+      <a routerLink="/" fragment="projetos" routerLinkActive="active" (click)="closeMenu()">Projetos</a>
+      <a routerLink="/" fragment="sobre" routerLinkActive="active" (click)="closeMenu()">Sobre</a>
+      <a routerLink="/" fragment="habilidades" routerLinkActive="active" (click)="closeMenu()">Habilidades</a>
+      <a routerLink="/exercicios" routerLinkActive="active" (click)="closeMenu()">Exercícios</a>
+      <a routerLink="/contato" routerLinkActive="active" (click)="closeMenu()">Contato</a>
+    </div>
+  </nav>
+</div>

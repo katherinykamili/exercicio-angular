@@ -1,12 +1,11 @@
 :host { display: block; }
 
-/* Estrutura externa e título do exercício. */
-.form-section {
+.registration-section {
   padding: clamp(76px, 10vw, 140px) clamp(12px, 4vw, 56px);
   border-top: 1px solid var(--border);
 }
 
-.form-heading {
+.registration-heading {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(240px, .8fr);
   align-items: end;
@@ -32,33 +31,26 @@ h2 {
   letter-spacing: -.075em;
 }
 
-.form-heading p,
-.form-note p {
+.registration-heading p,
+.empty-message {
   margin: 0;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.7;
 }
 
-/* Painel dividido entre os campos e o retorno do cadastro. */
-.form-panel {
+form {
+  padding: clamp(24px, 5vw, 48px);
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr);
-  overflow: hidden;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 18px;
   border: 1px solid var(--border);
   border-radius: 28px;
   background: var(--surface);
 }
 
-/* Grade interna do formulário. */
-form {
-  padding: clamp(24px, 5vw, 48px);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px 18px;
-}
-
 .field { min-width: 0; display: grid; align-content: start; gap: 8px; }
+.field-wide { grid-column: 1 / -1; }
 
 label {
   color: var(--text);
@@ -78,6 +70,7 @@ input {
   color: var(--text);
   background: var(--background);
   font: inherit;
+  color-scheme: inherit;
   transition: border-color 180ms ease, box-shadow 180ms ease;
 }
 
@@ -90,18 +83,11 @@ input[aria-invalid='true'] { border-color: #a94c43; }
 input::placeholder { color: var(--muted); opacity: .7; }
 .error { color: #a94c43; font-size: 11px; }
 
-.login-error {
-  margin: -8px 0 0;
-  color: #a94c43;
-  font-size: 13px;
-  font-weight: 700;
-}
-
 .submit-button {
+  grid-column: 1 / -1;
   justify-self: start;
-  align-self: end;
   min-height: 50px;
-  padding: 12px 20px;
+  padding: 12px 22px;
   border: 1px solid var(--text);
   border-radius: 999px;
   color: var(--inverse);
@@ -114,35 +100,42 @@ input::placeholder { color: var(--muted); opacity: .7; }
 
 .submit-button:hover { opacity: .86; transform: translateY(-1px); }
 
-.credentials-hint { color: var(--muted); line-height: 1.5; }
-.credentials-hint strong { color: var(--text); }
+.registered-users {
+  margin-top: 18px;
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
 
-.form-note {
-  padding: clamp(28px, 5vw, 48px);
+.list-heading {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 14px;
-  border-left: 1px solid var(--border);
-  background: color-mix(in srgb, var(--surface-hover) 65%, transparent);
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
 }
 
-.status {
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
+.list-heading .eyebrow { grid-column: auto; }
+.list-heading > strong { color: var(--text); }
 
-.form-note strong { color: var(--text); font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1; }
+.user-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.user-list li { padding: 18px; display: flex; align-items: center; gap: 16px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); }
+.user-id { color: var(--muted); font-size: 11px; font-weight: 700; }
+.user-list div { min-width: 0; display: grid; gap: 5px; }
+.user-list strong { color: var(--text); }
+.user-list small { overflow-wrap: anywhere; color: var(--muted); }
 
-/* Em telas menores, formulário e confirmação ficam em linhas separadas. */
 @media (max-width: 700px) {
-  .form-section { padding: 76px 4px; }
-  .form-heading,
-  .form-panel { grid-template-columns: 1fr; }
-  .eyebrow { grid-column: auto; }
+  .registration-section { padding: 76px 4px; }
+  .registration-heading,
+  form { grid-template-columns: 1fr; }
+  .registration-heading .eyebrow,
+  .field-wide,
+  .submit-button { grid-column: auto; }
   h2 { font-size: 3.2rem; }
-  .form-note { min-height: 220px; border-top: 1px solid var(--border); border-left: 0; }
+}
+
+@media (max-width: 430px) {
+  .list-heading { align-items: flex-start; flex-direction: column; }
 }

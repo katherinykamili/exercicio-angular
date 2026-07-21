@@ -1,13 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
-// Representa os dados válidos entregues após o envio do formulário.
-interface UsuarioCadastro {
-  nome: string;
-  email: string;
-  idade: number;
-}
-
 @Component({
   selector: 'app-form-login',
   imports: [ReactiveFormsModule],
@@ -15,28 +8,37 @@ interface UsuarioCadastro {
   styleUrl: './form-login.css',
 })
 export class FormLogin {
+  // Credenciais definidas apenas para demonstrar a validação durante o exercício.
+  private readonly usuarioCorreto = 'admin';
+  private readonly senhaCorreta = 'angular123';
+
   // Obtém o serviço responsável pela criação dos controles reativos.
   private readonly formBuilder = inject(FormBuilder);
 
-  // Guarda o último cadastro para exibi-lo no painel de confirmação.
-  protected readonly usuarioCadastrado = signal<UsuarioCadastro | null>(null);
+  // Signals atualizam automaticamente as mensagens exibidas no template.
+  protected readonly usuarioLogado = signal(false);
+  protected readonly credenciaisInvalidas = signal(false);
 
-  // Define valores iniciais e regras de validação para cada campo.
-  protected readonly usuarioForm = this.formBuilder.nonNullable.group({
-    nome: ['', [Validators.required, Validators.minLength(3)]],
-    email: ['', [Validators.required, Validators.email]],
-    idade: [18, [Validators.required, Validators.min(18), Validators.max(120)]],
+  // Os dois campos são obrigatórios; a senha precisa ter pelo menos seis caracteres.
+  protected readonly loginForm = this.formBuilder.nonNullable.group({
+    usuario: ['', Validators.required],
+    senha: ['', [Validators.required, Validators.minLength(6)]],
   });
 
-  protected cadastrarUsuario(): void {
-    // Impede o envio inválido e torna todas as mensagens de erro visíveis.
-    if (this.usuarioForm.invalid) {
-      this.usuarioForm.markAllAsTouched();
+  protected realizarLogin(): void {
+    // Exibe os erros dos campos e interrompe a tentativa se o formulário for inválido.
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      this.usuarioLogado.set(false);
+      this.credenciaisInvalidas.set(false);
       return;
     }
 
-    // Salva os dados válidos e prepara o formulário para outro cadastro.
-    this.usuarioCadastrado.set(this.usuarioForm.getRawValue());
-    this.usuarioForm.reset({ nome: '', email: '', idade: 18 });
+    const { usuario, senha } = this.loginForm.getRawValue();
+    const loginValido = usuario === this.usuarioCorreto && senha === this.senhaCorreta;
+
+    // Atualiza o estado de autenticação conforme a comparação das credenciais.
+    this.usuarioLogado.set(loginValido);
+    this.credenciaisInvalidas.set(!loginValido);
   }
 }

@@ -4,7 +4,7 @@
     display: grid;
     place-items: center;
     border-radius: 42px;
-    background: linear-gradient(90deg, rgba(42, 27, 19, .68), rgba(42, 27, 19, .24)), url('/assets/contato.jpg') center / cover;
+    background: linear-gradient(90deg, rgba(42, 27, 19, .68), rgba(42, 27, 19, .24)), url('../../../../public/assets/contato.jpg') center / cover;
 }
 
 ui-glass-panel {

@@ -1,10 +1,12 @@
 <section class="users-section" aria-labelledby="users-title">
+  <!-- Cabeçalho explica o conceito demonstrado pelo exercício. -->
   <header class="users-heading">
     <span class="eyebrow">Control flow</span>
     <h2 id="users-title">Lista de usuários.</h2>
     <p>Renderização de uma coleção tipada utilizando o bloco <code>&#64;for</code> do Angular.</p>
   </header>
 
+  <!-- track usuario.id ajuda o Angular a reaproveitar os elementos da lista. -->
   <ul class="user-grid" aria-label="Usuários cadastrados">
     @for (usuario of usuarios; track usuario.id) {
       <li class="user-card">

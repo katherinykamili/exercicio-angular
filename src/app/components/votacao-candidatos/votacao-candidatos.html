@@ -1,4 +1,5 @@
 <section class="voting-section" aria-labelledby="voting-title">
+  <!-- Cabeçalho do exercício e ação que ordena o ranking. -->
   <header class="voting-heading">
     <div>
       <span class="eyebrow">Signals e arrays</span>
@@ -13,6 +14,7 @@
     </div>
   </header>
 
+  <!-- @for recria a ordem visual sempre que o signal candidatos é atualizado. -->
   <ol class="candidate-grid" aria-label="Candidatos">
     @for (candidato of candidatos(); track candidato.id; let posicao = $index) {
       <li class="candidate-card">

@@ -1,5 +1,6 @@
 :host { display: block; }
 
+/* Área principal e apresentação do exercício. */
 .voting-section {
   padding: clamp(76px, 10vw, 140px) clamp(12px, 4vw, 56px);
   border-top: 1px solid var(--border);
@@ -56,6 +57,7 @@ button:hover { background: var(--surface-hover); transform: translateY(-1px); }
 
 .sort-button { background: var(--surface); }
 
+/* Ranking responsivo de candidatos. */
 .candidate-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -92,6 +94,7 @@ img {
 .candidate-info span { color: var(--muted); font-size: 13px; }
 .empty-message { color: var(--muted); }
 
+/* Os cards passam para uma coluna quando falta espaço horizontal. */
 @media (max-width: 850px) {
   .candidate-grid { grid-template-columns: 1fr; }
 }

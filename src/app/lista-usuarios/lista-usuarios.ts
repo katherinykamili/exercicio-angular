@@ -9,6 +9,7 @@ import { Usuario } from '../models/usuario.model';
   styleUrl: './lista-usuarios.css',
 })
 export class ListaUsuariosComponent {
+  // O template percorre esta coleção com @for e rastreia cada item pelo id.
   protected readonly usuarios: Usuario[] = [
     { id: 1, nome: 'Ana Silva', idade: 28 },
     { id: 2, nome: 'Bruno Costa', idade: 34 },

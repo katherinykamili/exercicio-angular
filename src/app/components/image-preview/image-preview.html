@@ -2,7 +2,8 @@
   <div class="image-content">
     <span class="eyebrow">Pré-visualização</span>
     <h2 id="image-title">Veja sua imagem<br><strong>na tela.</strong></h2>
-    <label for="image-url">URL da imagem</label>
+  <!-- O evento input envia a URL digitada para o estado do componente. -->
+  <label for="image-url">URL da imagem</label>
     <input
       id="image-url"
       type="url"
@@ -14,6 +15,7 @@
   </div>
 
   <div class="image-preview" aria-live="polite">
+    <!-- Alterna entre imagem, erro de carregamento e orientação inicial. -->
     @if (imageUrl && !imageError) {
       <img
         [src]="imageUrl"

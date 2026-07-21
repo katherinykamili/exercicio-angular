@@ -11,7 +11,9 @@ import { Navigation } from './components/navigation/navigation';
   styleUrl: './app.css'
 })
 export class App {
+  // DOCUMENT permite alterar o elemento <html> sem acessar window diretamente.
   private readonly document = inject(DOCUMENT);
+  // Guarda o tema atual e atualiza o cabeçalho quando seu valor muda.
   readonly isDarkMode = signal(false);
 
   constructor() {
@@ -21,10 +23,12 @@ export class App {
   }
 
   toggleTheme(): void {
+    // Inverte o valor atual quando o usuário aciona o botão de tema.
     this.setTheme(!this.isDarkMode());
   }
 
   private setTheme(isDark: boolean): void {
+    // Sincroniza o signal, o atributo usado pelo CSS e a preferência persistida.
     this.isDarkMode.set(isDark);
     this.document.documentElement.dataset['theme'] = isDark ? 'dark' : 'light';
     localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');

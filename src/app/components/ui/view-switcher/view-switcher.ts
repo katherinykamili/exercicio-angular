@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+// Tipo compartilhado com a Home para alternar a lista de projetos.
 export type ProjectView = 'grid' | 'list';
 
 @Component({
@@ -17,6 +18,7 @@ export class ViewSwitcher {
   @Output() valueChange = new EventEmitter<ProjectView>();
 
   onChange(event: Event): void {
+    // Lê a opção do select e comunica a mudança ao componente pai.
     this.valueChange.emit((event.target as HTMLSelectElement).value as ProjectView);
   }
 }

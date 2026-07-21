@@ -1,0 +1,145 @@
+:host { display: block; }
+
+/* Estrutura externa e título do exercício. */
+.form-section {
+  padding: clamp(76px, 10vw, 140px) clamp(12px, 4vw, 56px);
+  border-top: 1px solid var(--border);
+}
+
+.form-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, .8fr);
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.075em;
+}
+
+.form-heading p,
+.form-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Painel dividido entre os campos e o retorno do cadastro. */
+.form-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--surface);
+}
+
+/* Grade interna do formulário. */
+form {
+  padding: clamp(24px, 5vw, 48px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(140px, .35fr);
+  gap: 24px 18px;
+}
+
+.field { min-width: 0; display: grid; align-content: start; gap: 8px; }
+.field:first-child,
+.field:nth-child(2) { grid-column: 1 / -1; }
+
+label {
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+input {
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  outline: none;
+  color: var(--text);
+  background: var(--background);
+  font: inherit;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+input:focus {
+  border-color: var(--muted);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 10%, transparent);
+}
+
+input[aria-invalid='true'] { border-color: #a94c43; }
+input::placeholder { color: var(--muted); opacity: .7; }
+.error { color: #a94c43; font-size: 11px; }
+
+.submit-button {
+  align-self: end;
+  min-height: 50px;
+  padding: 12px 20px;
+  border: 1px solid var(--text);
+  border-radius: 999px;
+  color: var(--inverse);
+  background: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.submit-button:hover { opacity: .86; transform: translateY(-1px); }
+
+.form-note {
+  padding: clamp(28px, 5vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 14px;
+  border-left: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-hover) 65%, transparent);
+}
+
+.status {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.form-note strong { color: var(--text); font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1; }
+
+/* Em telas menores, formulário e confirmação ficam em linhas separadas. */
+@media (max-width: 700px) {
+  .form-section { padding: 76px 4px; }
+  .form-heading,
+  .form-panel { grid-template-columns: 1fr; }
+  .eyebrow { grid-column: auto; }
+  h2 { font-size: 3.2rem; }
+  .form-note { min-height: 220px; border-top: 1px solid var(--border); border-left: 0; }
+}
+
+@media (max-width: 460px) {
+  form { grid-template-columns: 1fr; }
+  .field:first-child,
+  .field:nth-child(2) { grid-column: auto; }
+}

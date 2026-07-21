@@ -9,6 +9,7 @@ import { Pessoa } from './pessoa';
   styleUrl: './usuario.css',
 })
 export class UsuarioComponent {
+  // Objetos tipados garantem que todas as propriedades de Pessoa estejam presentes.
   pessoa1: Pessoa = {
     nome: 'Maria Silva',
     sexo: 'Feminino',
@@ -16,6 +17,7 @@ export class UsuarioComponent {
     estadoCivil: 'Solteira'
   };
 
+  // Segundo exemplo usado no mesmo template para demonstrar reutilização.
   pessoa2: Pessoa = {
     nome: 'João Pereira',
     sexo: 'Masculino',

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+// Restringe o layout aos dois valores aceitos pelo componente.
 export type ProjectCardLayout = 'grid' | 'list';
 
 @Component({
@@ -10,6 +11,7 @@ export type ProjectCardLayout = 'grid' | 'list';
   styleUrl: './project-card.css',
 })
 export class ProjectCard {
+  // Inputs permitem reutilizar o card com conteúdo diferente em cada projeto.
   @Input() title = '';
   @Input() description = '';
   @Input() layout: ProjectCardLayout = 'grid';
@@ -20,5 +22,6 @@ export class ProjectCard {
   @Input() imageSrc = '';
   @Input() imageAlt = '';
 
+  // Emite o clique caso o componente pai queira acompanhar a abertura do link.
   @Output() projectOpen = new EventEmitter<MouseEvent>();
 }

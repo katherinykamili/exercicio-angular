@@ -1,3 +1,4 @@
+<!-- Estrutura persistente: cabeçalho e navegação permanecem entre as páginas. -->
 <app-header
   [darkMode]="isDarkMode()"
   (themeToggle)="toggleTheme()"
@@ -5,6 +6,7 @@
 
 <div class="layout page-shell">
   <app-navigation />
+  <!-- O componente da rota atual é inserido dentro do router-outlet. -->
   <main class="main-content"><router-outlet /></main>
 </div>
 

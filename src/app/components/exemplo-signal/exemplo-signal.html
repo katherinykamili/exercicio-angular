@@ -1,0 +1,16 @@
+<section class="signal-section" aria-labelledby="signal-title">
+  <div>
+    <span class="eyebrow">Signal</span>
+    <h2 id="signal-title">Exemplo de Signal</h2>
+    <p>A idade é atualizada de forma reativa.</p>
+  </div>
+
+  <div class="signal-controls">
+    <strong class="signal-value" aria-live="polite">{{ idade() }} anos</strong>
+    <div class="signal-actions">
+      <button type="button" (click)="idade.update(valor => valor + 1)">Aumentar</button>
+      <button type="button" (click)="idade.update(valor => valor - 1)">Diminuir</button>
+      <button type="button" (click)="idade.set(0)">Resetar</button>
+    </div>
+  </div>
+</section>

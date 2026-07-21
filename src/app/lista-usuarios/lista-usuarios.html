@@ -1,0 +1,21 @@
+<section class="users-section" aria-labelledby="users-title">
+  <header class="users-heading">
+    <span class="eyebrow">Control flow</span>
+    <h2 id="users-title">Lista de usuários.</h2>
+    <p>Renderização de uma coleção tipada utilizando o bloco <code>&#64;for</code> do Angular.</p>
+  </header>
+
+  <ul class="user-grid" aria-label="Usuários cadastrados">
+    @for (usuario of usuarios; track usuario.id) {
+      <li class="user-card">
+        <span class="user-id" aria-label="Identificador {{ usuario.id }}">#{{ usuario.id }}</span>
+        <div class="user-info">
+          <strong>{{ usuario.nome }}</strong>
+          <small>{{ usuario.idade }} anos</small>
+        </div>
+      </li>
+    } @empty {
+      <li class="empty-message">Nenhum usuário encontrado.</li>
+    }
+  </ul>
+</section>

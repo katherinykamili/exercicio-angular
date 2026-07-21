@@ -1,0 +1,44 @@
+<section class="voting-section" aria-labelledby="voting-title">
+  <header class="voting-heading">
+    <div>
+      <span class="eyebrow">Signals e arrays</span>
+      <h2 id="voting-title">Votação de candidatos.</h2>
+    </div>
+
+    <div class="voting-intro">
+      <p>Vote em um candidato e organize a classificação pela maior quantidade de votos.</p>
+      <button class="sort-button" type="button" (click)="ordenarLista()">
+        Ordenar lista
+      </button>
+    </div>
+  </header>
+
+  <ol class="candidate-grid" aria-label="Candidatos">
+    @for (candidato of candidatos(); track candidato.id; let posicao = $index) {
+      <li class="candidate-card">
+        <span class="position" aria-label="Posição {{ posicao + 1 }}">
+          {{ (posicao + 1).toString().padStart(2, '0') }}
+        </span>
+
+        <img
+          [src]="candidato.foto"
+          [alt]="'Foto de ' + candidato.nome"
+          width="80"
+          height="80">
+
+        <div class="candidate-info">
+          <strong>{{ candidato.nome }}</strong>
+          <span aria-live="polite">
+            {{ candidato.votos }} {{ candidato.votos === 1 ? 'voto' : 'votos' }}
+          </span>
+        </div>
+
+        <button class="vote-button" type="button" (click)="votar(candidato.id)">
+          Votar
+        </button>
+      </li>
+    } @empty {
+      <li class="empty-message">Nenhum candidato disponível.</li>
+    }
+  </ol>
+</section>

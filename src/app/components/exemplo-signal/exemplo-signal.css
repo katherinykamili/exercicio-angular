@@ -1,0 +1,63 @@
+:host { display: block; }
+
+.signal-section {
+  padding: clamp(76px, 10vw, 140px) clamp(12px, 4vw, 56px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 14px 0 12px;
+  color: var(--text);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.075em;
+}
+
+p { margin: 0; color: var(--muted); }
+
+.signal-controls { text-align: center; }
+
+.signal-value {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--text);
+  font-size: 2rem;
+}
+
+.signal-actions { display: flex; gap: 10px; }
+
+button {
+  padding: 13px 22px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover { background: var(--surface-hover); }
+
+@media (max-width: 600px) {
+  .signal-section {
+    padding: 76px 4px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  h2 { font-size: 3.2rem; }
+}

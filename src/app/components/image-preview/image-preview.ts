@@ -10,12 +10,12 @@ export class ImagePreview {
   imageUrl = '';
   imageError = false;
 
-  updateImageUrl(event: Event): void {
+ protected updateImageUrl(event: Event): void {
     this.imageUrl = (event.target as HTMLInputElement).value.trim();
     this.imageError = false;
   }
 
-  markImageAsInvalid(): void {
+  protected markImageAsInvalid(): void {
     this.imageError = true;
   }
 }

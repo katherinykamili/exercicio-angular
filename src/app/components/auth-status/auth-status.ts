@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './auth-status.css',
 })
 export class AuthStatus {
-  isLoggedIn = false;
+  protected isLoggedIn = false;
 
-  toggleLogin(): void {
+  protected toggleLogin(): void {
     this.isLoggedIn = !this.isLoggedIn;
   }
 }

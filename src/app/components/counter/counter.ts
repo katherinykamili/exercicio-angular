@@ -7,13 +7,21 @@ import { Component, signal } from '@angular/core';
   styleUrl: './counter.css',
 })
 export class Counter {
-  readonly count = signal(0);
+  protected count = signal(0);
+  private limiteImposto = 10;
 
-  increment(): void {
+  protected increment(): void {
     this.count.update((value) => value + 1);
+    this.checarValor();
   }
 
-  reset(): void {
+  private checarValor(): void {
+    if (this.count() > this.limiteImposto) {
+      this.count = signal(0);
+    }
+  }
+
+  protected reset(): void {
     this.count.set(0);
   }
 }

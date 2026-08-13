@@ -9,11 +9,13 @@ import { ListaUsuariosComponent } from '../../lista-usuarios/lista-usuarios';
 import { VotacaoCandidatos } from '../../components/votacao-candidatos/votacao-candidatos';
 import { FormLogin } from '../../components/form-login/form-login';
 import { FormCadastro } from '../../components/form-cadastro/form-cadastro';
+import { CadastroAluno } from '../../components/cadastro-aluno/cadastro-aluno';
+import { ListaTarefas } from '../../components/lista-tarefas/lista-tarefas';
 
 @Component({
   selector: 'app-exercises',
   // Componentes standalone devem ser importados antes de serem usados no HTML.
-  imports: [Counter, Compras, UsuarioComponent, AuthStatus, ImagePreview, ExemploSignal, ListaUsuariosComponent, VotacaoCandidatos, FormLogin, FormCadastro],
+  imports: [Counter, Compras, UsuarioComponent, AuthStatus, ImagePreview, ExemploSignal, ListaUsuariosComponent, VotacaoCandidatos, FormLogin, FormCadastro, CadastroAluno, ListaTarefas],
   templateUrl: './exercises.html',
   styleUrl: './exercises.css',
 })

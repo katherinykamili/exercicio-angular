@@ -1,0 +1,48 @@
+<section class="students-section" aria-labelledby="students-title">
+    <!-- Cabeçalho que apresenta o exercício. -->
+    <header class="students-heading">
+        <div>
+            <!-- Texto pequeno de categoria, usado no padrão visual da página. -->
+            <span class=" eyebrow">Formulários e condicionais</span>
+        <h2 id="students-title">Cadastro de Alunos</h2>
+        </div>
+        <p>Informe o nome e a média final para verificar automaticamente a situação
+      do aluno.</p>
+    </header>
+
+    <!-- ngSubmit chama cadastrar() ao clicar no botão ou pressionar Enter. -->
+    <form class="student-form" (ngSubmit)="cadastrar()">
+        <!-- O ngModel liga o campo nome à propriedade nome do TypeScript. -->
+        <label for="nome-aluno">Nome do aluno</label>
+        <input id="nome-aluno" name="nome" type="text" [(ngModel)]="nome" required>
+
+        <!-- O ngModel liga a média digitada à propriedade media do TypeScript. -->
+        <label for="media-aluno">Média final</label>
+        <input id="media-aluno" name="media" type="number" [(ngModel)]="media" min="0" max="10" step="0.1" required>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <!-- Só exibe a mensagem se mensagemErro tiver algum texto. -->
+    @if (mensagemErro) {
+    <p class="error-message">{{ mensagemErro }}</p>
+    }
+
+    <!-- Percorre a lista reativa de alunos e cria um item para cada um. -->
+    <ul>
+        @for (aluno of alunos(); track aluno.id) {
+        <li>
+            {{ aluno.nome }} - Média: {{ aluno.media }}
+
+            <!-- Escolhe o texto e a classe de cor com base na média do aluno. -->
+            @if (estaAprovado(aluno.media)) {
+            <span class="aprovado">Aprovado</span>} @else {
+            <span class="reprovado">Reprovado</span>
+            }
+        </li>
+        } @empty {
+        <!-- Aparece enquanto não existir nenhum aluno na lista. -->
+        <li>Nenhum aluno cadastrado.</li>
+        }
+    </ul>
+</section>

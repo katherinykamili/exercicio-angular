@@ -1,0 +1,173 @@
+:host {
+  /* Faz o componente ocupar uma área de bloco própria na página. */
+  display: block;
+}
+
+.tasks-section {
+  /* Espaçamento e borda iguais aos demais exercícios. */
+  padding: clamp(76px, 10vw, 140px) clamp(12px, 4vw, 56px);
+  border-top: 1px solid var(--border);
+}
+
+.tasks-heading {
+  /* Em telas largas, mantém título e texto explicativo lado a lado. */
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  /* Estilo do texto pequeno de categoria. */
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h2 {
+  /* Tipografia do título principal da seção. */
+  margin: 14px 0 0;
+  color: var(--text);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.075em;
+}
+
+p {
+  /* Aparência do texto explicativo. */
+  max-width: 440px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.task-form {
+  /* Organiza input e botão do formulário em grade. */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 14px;
+  max-width: 760px;
+}
+
+.task-form label {
+  /* Faz o rótulo ocupar toda a largura acima do campo. */
+  grid-column: 1 / -1;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+input {
+  /* Estilo visual do campo onde a tarefa é digitada ou editada. */
+  box-sizing: border-box;
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  background: var(--surface);
+  font: inherit;
+}
+
+.task-list {
+  /* Remove marcadores padrão e organiza os cards verticalmente. */
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-card {
+  /* Card individual de cada tarefa. */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text);
+  background: var(--surface);
+}
+
+.task-card strong {
+  /* Mantém o título em uma linha própria dentro do card. */
+  display: block;
+}
+
+.task-card span {
+  /* Aparência do status Pendente ou Concluída. */
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.task-card.completed {
+  /* Deixa a tarefa concluída visualmente menos destacada. */
+  opacity: 0.65;
+}
+
+.task-card.completed strong {
+  /* Risca o texto para indicar que a tarefa terminou. */
+  text-decoration: line-through;
+}
+
+.task-actions,
+.edit-actions {
+  /* Agrupa e distribui os botões de ação com espaçamento. */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+button {
+  /* Aparência reutilizada por todos os botões do componente. */
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  /* Feedback visual ao passar o mouse sobre um botão. */
+  background: var(--surface-hover);
+}
+
+.edit-actions {
+  /* Faz as ações de edição ocuparem a largura do card. */
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 700px) {
+  /* Em telas pequenas, transforma os grids em uma única coluna. */
+  .tasks-section {
+    padding: 76px 4px;
+  }
+
+  .tasks-heading,
+  .task-form,
+  .task-card {
+    grid-template-columns: 1fr;
+  }
+
+  .task-actions {
+    justify-content: flex-start;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+  }
+}

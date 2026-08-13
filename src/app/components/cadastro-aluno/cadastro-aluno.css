@@ -1,0 +1,166 @@
+:host {
+    /* Faz o componente se comportar como um bloco na página. */
+    display: block;
+}
+
+.students-section {
+    /* Espaçamento e borda que alinham este exercício aos demais da página. */
+    padding: clamp(76px, 10vw, 140px) clamp(12px, 4vw, 56px);
+  border-top: 1px solid var(--border);
+}
+
+.students-heading {
+    /* Em telas grandes, posiciona o título e a descrição lado a lado. */
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(240px, .8fr);
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.eyebrow {
+    /* Estilo do pequeno texto de categoria acima do título. */
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+h2 {
+    /* Título grande, usando as mesmas variáveis visuais do projeto. */
+    margin: 14px 0 0;
+    color: var(--text);
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: -0.075em;
+}
+
+p {
+    /* Texto explicativo do componente. */
+    max-width: 440px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.student-form {
+    /* Organiza os campos do formulário verticalmente, com espaçamento. */
+    padding: clamp(24px, 5vw, 48px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px 18px;
+}
+
+label {
+    /* Rótulos dos campos, com aparência de legenda. */
+    color: var(--text);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+input {
+    /* Aparência comum dos dois campos de entrada. */
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    outline: none;
+    color: var(--text);
+    background: var(--background);
+    font: inherit;
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+button {
+    /* Botão arredondado de envio do formulário. */
+    justify-self: start;
+    align-self: end;
+    min-height: 50px;
+    padding: 12px 20px;
+    border: 1px solid var(--text);
+    border-radius: 999px;
+    color: var(--inverse);
+    background: var(--text);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 180ms ease, opacity 180ms ease;
+}
+
+button:hover {
+    /* Feedback visual ao passar o mouse pelo botão. */
+    opacity: .86;
+    transform: translateY(-1px);
+    ;
+}
+
+ul {
+    /* Remove os marcadores padrão da lista de alunos. */
+    margin-top: 24px;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    /* Separa visualmente cada aluno cadastrado. */
+    margin-bottom: 10px;
+}
+
+.student-list {
+    /* Estilo alternativo para uma lista apresentada como cards. */
+    display: grid;
+    gap: 10px;
+    max-width: 760px;
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.student-list li {
+    /* Aparência individual dos cards da lista. */
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    background: var(--surface);
+}
+
+.aprovado {
+    /* Verde para alunos com média maior ou igual a 7. */
+    color: #2e9b59;
+    font-weight: 700;
+}
+
+.reprovado {
+    /* Vermelho para alunos com média abaixo de 7. */
+    color: #dc4d4d;
+    font-weight: 700;
+}
+
+.erro {
+    /* Cor usada para mensagens de erro. */
+    color: #dc4d4d;
+    font-weight: 700;
+}
+
+@media (max-width: 700px) {
+    /* Ajustes de layout para telas menores, como celulares. */
+    .students-section {
+        padding: 76px 4px;
+    }
+
+    .student-form,
+    .student-heading {
+        grid-template-columns: minmax(1fr);
+    }
+
+    h2 {
+        font-size: 3.2rem;
+    }
+}

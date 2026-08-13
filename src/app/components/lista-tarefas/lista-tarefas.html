@@ -1,0 +1,91 @@
+<section class="tasks-section" aria-labelledby="tasks-title">
+  <!-- Cabeçalho seguindo o padrão visual da página de exercícios. -->
+  <header class="tasks-heading">
+    <div>
+      <!-- Pequena categoria exibida acima do título. -->
+      <span class="eyebrow">Arrays e eventos</span>
+      <h2 id="tasks-title">Lista de tarefas.</h2>
+    </div>
+
+    <p>
+      Organize as suas pendências, conclua o que já fez e ajuste o que for
+      necessário.
+    </p>
+  </header>
+
+  <!-- Ao enviar, adiciona uma tarefa ou salva a edição, conforme o estado atual. -->
+  <form
+  class="task-form"
+  (ngSubmit)="tarefaEmEdicaoId ? salvarEdicao() : adicionarTarefa()"
+>
+    <!-- Campo ligado à variável novaTarefa por meio do ngModel. -->
+    <label for="nova-tarefa">Nome da tarefa</label>
+
+    <input
+      id="nova-tarefa"
+      name="novaTarefa"
+      type="text"
+      [(ngModel)]="novaTarefa"
+      [placeholder]="tarefaEmEdicaoId ? 'Edite o nome da tarefa' : 'Ex.: Estudar Angular'"
+    >
+
+    <!-- O texto do botão muda enquanto uma tarefa está sendo editada. -->
+    <button type="submit">
+      {{ tarefaEmEdicaoId ? 'Adicionar outra tarefa' : 'Adicionar tarefa' }}
+    </button>
+  </form>
+
+  <!-- Só exibe o alerta se uma mensagem de erro tiver sido definida. -->
+  @if (mensagemErro) {
+    <p class="error-message" role="alert">{{ mensagemErro }}</p>
+  }
+
+  <!-- aria-live anuncia alterações na lista para tecnologias assistivas. -->
+  <ul class="task-list" aria-live="polite">
+    <!-- Cria um card para cada tarefa; o id é usado para identificá-la. -->
+    @for (tarefa of tarefas(); track tarefa.id) {
+      <!-- A classe completed é aplicada apenas às tarefas concluídas. -->
+      <li class="task-card" [class.completed]="tarefa.concluida">
+        <div>
+          <strong>{{ tarefa.titulo }}</strong>
+
+          <span>
+            {{ tarefa.concluida ? 'Concluída' : 'Pendente' }}
+          </span>
+        </div>
+
+        <!-- Ações disponíveis para a tarefa atual. -->
+        <div class="task-actions">
+          <button type="button" (click)="alternarConclusao(tarefa.id)">
+            {{ tarefa.concluida ? 'Marcar como não concluída' : 'Marcar como concluída' }}
+          </button>
+
+          <button type="button" (click)="iniciarEdicao(tarefa)">
+            Editar
+          </button>
+
+          <button type="button" (click)="removerTarefa(tarefa.id)">
+            Remover
+          </button>
+        </div>
+
+        <!-- Apenas o card em edição mostra os botões de salvar e cancelar. -->
+        @if (tarefaEmEdicaoId === tarefa.id) {
+          <div class="edit-actions">
+            <button type="button" (click)="salvarEdicao()">
+              Salvar edição
+            </button>
+
+            <button type="button" (click)="cancelarEdicao()">
+              Cancelar edição
+            </button>
+          </div>
+        }
+      </li>
+    } @empty {
+      <!-- Mensagem mostrada enquanto a lista não tiver nenhuma tarefa. -->
+      <li class="empty-message">Nenhuma tarefa cadastrada ainda.</li>
+    }
+  </ul>
+</section>
+

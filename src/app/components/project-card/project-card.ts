@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 
 // Restringe o layout aos dois valores aceitos pelo componente.
 export type ProjectCardLayout = 'grid' | 'list';
@@ -8,6 +8,7 @@ export type ProjectCardLayout = 'grid' | 'list';
   standalone: true,
   imports: [],
   templateUrl: './project-card.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './project-card.css',
 })
 export class ProjectCard {

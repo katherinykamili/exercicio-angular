@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Pessoa } from './pessoa';
 
 @Component({
@@ -6,6 +6,7 @@ import { Pessoa } from './pessoa';
   standalone: true,
   imports: [],
   templateUrl: './usuario.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './usuario.css',
 })
 export class UsuarioComponent {
@@ -14,7 +15,7 @@ export class UsuarioComponent {
     nome: 'Maria Silva',
     sexo: 'Feminino',
     dataNascimento: 'Dez de março de mil novecentos e noventa e oito',
-    estadoCivil: 'Solteira'
+    estadoCivil: 'Solteira',
   };
 
   // Segundo exemplo usado no mesmo template para demonstrar reutilização.
@@ -22,6 +23,6 @@ export class UsuarioComponent {
     nome: 'João Pereira',
     sexo: 'Masculino',
     dataNascimento: 'Vinte e dois de novembro de mil novecentos e noventa e cinco',
-    estadoCivil: 'Casado'
+    estadoCivil: 'Casado',
   };
 }

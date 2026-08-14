@@ -1,14 +1,15 @@
-import { Component, DOCUMENT, inject, signal } from '@angular/core';
+import { Component, DOCUMENT, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Header } from "./components/header/header";
-import { Footer } from "./components/footer/footer";
+import { Header } from './components/header/header';
+import { Footer } from './components/footer/footer';
 import { Navigation } from './components/navigation/navigation';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Header, Navigation, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './app.css',
 })
 export class App {
   // DOCUMENT permite alterar o elemento <html> sem acessar window diretamente.

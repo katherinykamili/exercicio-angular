@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Usuario } from '../models/usuario.model';
 
 @Component({
@@ -6,6 +6,7 @@ import { Usuario } from '../models/usuario.model';
   standalone: true,
   imports: [],
   templateUrl: './lista-usuarios.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './lista-usuarios.css',
 })
 export class ListaUsuariosComponent {

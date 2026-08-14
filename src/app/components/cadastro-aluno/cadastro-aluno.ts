@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 // Define o formato de cada aluno que será guardado na lista.
@@ -14,6 +14,7 @@ interface Aluno {
   // Necessário para utilizar [(ngModel)] nos campos do formulário.
   imports: [FormsModule],
   templateUrl: './cadastro-aluno.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './cadastro-aluno.css',
 })
 export class CadastroAluno {
@@ -43,7 +44,7 @@ export class CadastroAluno {
     // Atualiza a lista sem alterar diretamente o array anterior.
     this.alunos.update((listaAtual) => [
       ...listaAtual,
-      { id: this.proximoId++, nome: nomeLimpo, media: this.media!, },
+      { id: this.proximoId++, nome: nomeLimpo, media: this.media! },
     ]);
 
     // Limpa o formulário e a mensagem de erro após um cadastro válido.

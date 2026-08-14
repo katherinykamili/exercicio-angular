@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-image-preview',
   imports: [],
   templateUrl: './image-preview.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './image-preview.css',
 })
 export class ImagePreview {

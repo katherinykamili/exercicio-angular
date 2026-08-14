@@ -1,10 +1,11 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-login',
   imports: [ReactiveFormsModule],
   templateUrl: './form-login.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './form-login.css',
 })
 export class FormLogin {

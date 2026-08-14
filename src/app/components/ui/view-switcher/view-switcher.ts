@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 
 // Tipo compartilhado com a Home para alternar a lista de projetos.
 export type ProjectView = 'grid' | 'list';
@@ -7,6 +7,7 @@ export type ProjectView = 'grid' | 'list';
   selector: 'ui-view-switcher',
   standalone: true,
   templateUrl: './view-switcher.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './view-switcher.css',
 })
 export class ViewSwitcher {

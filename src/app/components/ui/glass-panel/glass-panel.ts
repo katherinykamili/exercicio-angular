@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 // Limita o espaçamento às opções previstas pelo design system.
 export type GlassPanelPadding = 'compact' | 'regular' | 'spacious';
@@ -7,6 +7,7 @@ export type GlassPanelPadding = 'compact' | 'regular' | 'spacious';
   selector: 'ui-glass-panel',
   standalone: true,
   templateUrl: './glass-panel.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './glass-panel.css',
 })
 export class GlassPanel {

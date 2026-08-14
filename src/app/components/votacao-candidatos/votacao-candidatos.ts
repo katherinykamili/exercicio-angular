@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 
 // Modelo de cada candidato apresentado pelo exercício.
 interface Candidato {
@@ -12,6 +12,7 @@ interface Candidato {
   selector: 'app-votacao-candidatos',
   imports: [],
   templateUrl: './votacao-candidatos.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './votacao-candidatos.css',
 })
 export class VotacaoCandidatos {
@@ -27,17 +28,13 @@ export class VotacaoCandidatos {
     // Cria uma nova lista e incrementa somente o candidato selecionado.
     this.candidatos.update((lista) =>
       lista.map((candidato) =>
-        candidato.id === id
-          ? { ...candidato, votos: candidato.votos + 1 }
-          : candidato,
+        candidato.id === id ? { ...candidato, votos: candidato.votos + 1 } : candidato,
       ),
     );
   }
 
   protected ordenarLista(): void {
     // Copia o array antes de ordenar para não modificar o estado anterior diretamente.
-    this.candidatos.update((lista) =>
-      [...lista].sort((a, b) => b.votos - a.votos),
-    );
+    this.candidatos.update((lista) => [...lista].sort((a, b) => b.votos - a.votos));
   }
 }

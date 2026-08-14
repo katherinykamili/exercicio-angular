@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 
 // Tipos literais documentam e limitam as opções públicas do botão.
 export type PillButtonVariant = 'translucent' | 'outline';
@@ -8,6 +8,7 @@ export type PillButtonType = 'button' | 'submit' | 'reset';
   selector: 'ui-pill-button',
   standalone: true,
   templateUrl: './pill-button.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './pill-button.css',
 })
 export class PillButton {

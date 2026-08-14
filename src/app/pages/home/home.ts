@@ -1,4 +1,4 @@
-import { Component, DOCUMENT, inject } from '@angular/core';
+import { Component, DOCUMENT, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ProjectCard } from '../../components/project-card/project-card';
 import { GlassPanel, PillButton, ViewSwitcher } from '../../components/ui';
 import type { ProjectView } from '../../components/ui';
@@ -7,6 +7,7 @@ import type { ProjectView } from '../../components/ui';
   selector: 'app-home',
   imports: [ProjectCard, GlassPanel, PillButton, ViewSwitcher],
   templateUrl: './home.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home.css',
 })
 export class Home {

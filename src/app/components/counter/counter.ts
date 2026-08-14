@@ -1,9 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
   imports: [],
   templateUrl: './counter.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './counter.css',
 })
 export class Counter {

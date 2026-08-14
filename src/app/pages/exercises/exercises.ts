@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Counter } from '../../components/counter/counter';
 import { Compras } from '../../compras/compras';
 import { UsuarioComponent } from '../../usuario/usuario';
@@ -15,8 +15,22 @@ import { ListaTarefas } from '../../components/lista-tarefas/lista-tarefas';
 @Component({
   selector: 'app-exercises',
   // Componentes standalone devem ser importados antes de serem usados no HTML.
-  imports: [Counter, Compras, UsuarioComponent, AuthStatus, ImagePreview, ExemploSignal, ListaUsuariosComponent, VotacaoCandidatos, FormLogin, FormCadastro, CadastroAluno, ListaTarefas],
+  imports: [
+    Counter,
+    Compras,
+    UsuarioComponent,
+    AuthStatus,
+    ImagePreview,
+    ExemploSignal,
+    ListaUsuariosComponent,
+    VotacaoCandidatos,
+    FormLogin,
+    FormCadastro,
+    CadastroAluno,
+    ListaTarefas,
+  ],
   templateUrl: './exercises.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './exercises.css',
 })
 export class Exercises {}

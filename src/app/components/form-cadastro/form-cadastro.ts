@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -35,6 +35,7 @@ const dataNaoFutura: ValidatorFn = (controle: AbstractControl): ValidationErrors
   selector: 'app-form-cadastro',
   imports: [ReactiveFormsModule],
   templateUrl: './form-cadastro.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './form-cadastro.css',
 })
 export class FormCadastro {
@@ -47,7 +48,10 @@ export class FormCadastro {
   // O validator do grupo compara senha e confirmação após validar cada campo.
   protected readonly cadastroForm = this.formBuilder.nonNullable.group(
     {
-      nome: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^\S+(?:\s+\S+)+$/)]],
+      nome: [
+        '',
+        [Validators.required, Validators.minLength(3), Validators.pattern(/^\S+(?:\s+\S+)+$/)],
+      ],
       email: ['', [Validators.required, Validators.email]],
       senha: [
         '',

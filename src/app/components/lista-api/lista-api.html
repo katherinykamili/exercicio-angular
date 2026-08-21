@@ -1,0 +1,27 @@
+<section class="cadastro-section" aria-labelledby="students-title">
+    <!-- Cabeçalho que apresenta o exercício. -->
+    <header class="cadastro-heading">
+        <div>
+            <!-- Texto pequeno de categoria, usado no padrão visual da página. -->
+            <span class="cadastro">Formulários e cadastramento</span>
+        <h2 id="cadastro-title">Cadastro dos grupos</h2>
+        </div>
+        <p>Informe o nome, o responsável, e-mail e quantidade de membros da equipe.</p>
+    </header>
+
+     <!-- ngSubmit chama cadastrar() ao clicar no botão ou pressionar Enter. -->
+    <form class="cadastro-form" (ngSubmit)="cadastrar()">
+        <!-- O ngModel liga o campo nome à propriedade nome do TypeScript. -->
+        <label for="nome-aluno">Nome do aluno</label>
+        <input id="nome-aluno" name="nome" type="text" [(ngModel)]="nome" required>
+
+        <!-- O ngModel liga o campo responsável a propriedade responsável do TypeScript. -->
+        <label for="responsavel-grupo">Responsável pelo Grupo</label>
+        <input id="responsavel-grupo" name="Responsável" type="string" [(ngModel)]="Responsável" required>
+
+        <!-- O ngModel liga o campo e-mail a propriedade e-mail do TypeScript. -->
+        <label for="email-grupo">E-mail</label>
+        <input id="email-grupo" name="email" type="string" [(ngModel)]="Email" required>
+
+        <button type="submit">Cadastrar</button>
+    </form>

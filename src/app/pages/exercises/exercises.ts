@@ -11,6 +11,7 @@ import { FormLogin } from '../../components/form-login/form-login';
 import { FormCadastro } from '../../components/form-cadastro/form-cadastro';
 import { CadastroAluno } from '../../components/cadastro-aluno/cadastro-aluno';
 import { ListaTarefas } from '../../components/lista-tarefas/lista-tarefas';
+import { CadastroUsuario } from '../../components/API/POST/cadastro-usuario/cadastro-usuario';
 
 @Component({
   selector: 'app-exercises',
@@ -28,6 +29,7 @@ import { ListaTarefas } from '../../components/lista-tarefas/lista-tarefas';
     FormCadastro,
     CadastroAluno,
     ListaTarefas,
+    CadastroUsuario,
   ],
   templateUrl: './exercises.html',
   changeDetection: ChangeDetectionStrategy.Eager,

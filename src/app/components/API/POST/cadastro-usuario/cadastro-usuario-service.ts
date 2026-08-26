@@ -1,8 +1,8 @@
-import { Service, inject } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from './interface-cadastro-usuario';
 
-@Service()
+@Injectable({ providedIn: 'root' })
 export class CadastroUsuarioService {
 
     private readonly httpClient = inject(HttpClient);

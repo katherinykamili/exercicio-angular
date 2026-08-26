@@ -1,9 +1,28 @@
-<form (submit)="cadastrarPost($event)">
+<section class="post-section" aria-labelledby="post-title">
+  <header class="post-heading">
+    <div>
+      <span class="eyebrow">Integração com API</span>
+      <h2 id="post-title">Criar um post.</h2>
+    </div>
+    <p>Envie um novo post para a API de demonstração JSONPlaceholder.</p>
+  </header>
 
-    <input type="text" inputmode="numeric" [formField]="postForm.userId" placeholder="UserId">
-    <input type="text" [formField]="postForm.title" placeholder="Title">
-    <input type="text" [formField]="postForm.body" placeholder="Body">
+  <form class="post-form" (submit)="cadastrarPost($event)">
+    <div class="field">
+      <label for="post-user-id">ID do usuário</label>
+      <input id="post-user-id" type="number" inputmode="numeric" [formField]="postForm.userId" placeholder="Ex.: 1">
+    </div>
 
-    <button>Post</button>
+    <div class="field">
+      <label for="post-title-input">Título</label>
+      <input id="post-title-input" type="text" [formField]="postForm.title" placeholder="Título do post">
+    </div>
 
-    </form>
+    <div class="field field-wide">
+      <label for="post-body">Conteúdo</label>
+      <textarea id="post-body" rows="5" [formField]="postForm.body" placeholder="Escreva o conteúdo do post"></textarea>
+    </div>
+
+    <button type="submit">Publicar post</button>
+  </form>
+</section>

@@ -1,10 +1,112 @@
-:host {
-    display: flex;
-    margin-top: 10px;
+:host { display: block; }
+
+.post-section {
+  padding: clamp(76px, 10vw, 140px) clamp(12px, 4vw, 56px);
+  border-top: 1px solid var(--border);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.post-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, .8fr);
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 14px 0 0;
+  color: var(--text);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.075em;
+}
+
+.post-heading p {
+  max-width: 440px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.post-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 18px;
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--surface);
+}
+
+.field { min-width: 0; display: grid; gap: 8px; }
+.field-wide { grid-column: 1 / -1; }
+
+label {
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  outline: none;
+  color: var(--text);
+  background: var(--background);
+  font: inherit;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+input { min-height: 50px; }
+textarea { min-height: 130px; resize: vertical; }
+
+input:focus,
+textarea:focus {
+  border-color: var(--muted);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 10%, transparent);
+}
+
+input::placeholder,
+textarea::placeholder { color: var(--muted); opacity: .7; }
+
+button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  min-height: 50px;
+  padding: 12px 22px;
+  border: 1px solid var(--text);
+  border-radius: 999px;
+  color: var(--inverse);
+  background: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+button:hover { opacity: .86; transform: translateY(-1px); }
+
+@media (max-width: 700px) {
+  .post-section { padding: 76px 4px; }
+  .post-heading,
+  .post-form { grid-template-columns: 1fr; }
+  .field-wide,
+  button { grid-column: auto; }
+  h2 { font-size: 3.2rem; }
 }

@@ -17,11 +17,11 @@
 
         <!-- O ngModel liga o campo responsável a propriedade responsável do TypeScript. -->
         <label for="responsavel-grupo">Responsável pelo Grupo</label>
-        <input id="responsavel-grupo" name="Responsável" type="string" [(ngModel)]="Responsável" required>
+        <input id="responsavel-grupo" name="responsavel" type="text" [(ngModel)]="responsavel" required>
 
         <!-- O ngModel liga o campo e-mail a propriedade e-mail do TypeScript. -->
         <label for="email-grupo">E-mail</label>
-        <input id="email-grupo" name="email" type="string" [(ngModel)]="Email" required>
+        <input id="email-grupo" name="email" type="email" [(ngModel)]="email" required>
 
         <button type="submit">Cadastrar</button>
     </form>

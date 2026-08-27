@@ -1,0 +1,23 @@
+<section class="delete-section" aria-labelledby="delete-title">
+  <header class="delete-heading">
+    <div>
+      <span class="eyebrow">Integração com API</span>
+      <h2 id="delete-title">Excluir um post.</h2>
+    </div>
+    <p>Informe o ID de um post para enviar uma requisição DELETE à API de demonstração.</p>
+  </header>
+
+  <form class="delete-form" (submit)="deletarPost($event)">
+    <div class="field">
+      <label for="delete-post-id">ID do post</label>
+      <input id="delete-post-id" type="number" inputmode="numeric" [formField]="postForm.id" placeholder="Ex.: 1">
+    </div>
+    <button type="submit">Excluir post</button>
+  </form>
+
+  @if (mensagem) {
+    <p class="feedback" [class.success]="tipoMensagem === 'sucesso'" [class.error]="tipoMensagem === 'erro'" aria-live="polite">
+      {{ mensagem }}
+    </p>
+  }
+</section>

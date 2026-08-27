@@ -16,4 +16,8 @@ export class CadastroUsuarioService {
     atualizarPost(id: number, postAtualizado: AtualizaPost) {
         return this.httpClient.put<AtualizaPost>(`${this.urlAPI}/${id}`, postAtualizado);
     }
+
+    deletarPost(id: number) {
+        return this.httpClient.delete<void>(`${this.urlAPI}/${id}`);
+    }
 }

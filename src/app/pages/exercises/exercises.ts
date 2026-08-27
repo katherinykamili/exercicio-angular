@@ -13,6 +13,7 @@ import { CadastroAluno } from '../../components/cadastro-aluno/cadastro-aluno';
 import { ListaTarefas } from '../../components/lista-tarefas/lista-tarefas';
 import { CadastroUsuario } from '../../components/API/POST/cadastro-usuario/cadastro-usuario';
 import { CadastroUsuarioAtualizado } from '../../components/API/PUT/cadastro-usuario-atualizado/cadastro-usuario-atualizado';
+import { CadastroDeletado } from '../../components/API/DELETE/cadastro-deletado';
 
 @Component({
   selector: 'app-exercises',
@@ -32,6 +33,7 @@ import { CadastroUsuarioAtualizado } from '../../components/API/PUT/cadastro-usu
     ListaTarefas,
     CadastroUsuario,
     CadastroUsuarioAtualizado,
+    CadastroDeletado,
   ],
   templateUrl: './exercises.html',
   changeDetection: ChangeDetectionStrategy.Eager,

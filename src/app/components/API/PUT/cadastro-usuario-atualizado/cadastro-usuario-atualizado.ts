@@ -1,4 +1,4 @@
-import { Component, inject, signal, Signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CadastroUsuarioService } from '../../POST/cadastro-usuario/cadastro-usuario-service';
 import { AtualizaPost } from './atualiza-post';
 import { FormField, form } from '@angular/forms/signals';
@@ -11,8 +11,7 @@ import { FormField, form } from '@angular/forms/signals';
   styleUrl: './cadastro-usuario-atualizado.css',
 })
 export class CadastroUsuarioAtualizado {
-
-  protected readonly cadastroUsuarioService = inject(this.cadastroUsuarioService);
+  protected readonly cadastroUsuarioService = inject(CadastroUsuarioService);
 
   protected readonly postModel = signal<AtualizaPost>({
     id: null,
@@ -22,12 +21,24 @@ export class CadastroUsuarioAtualizado {
   });
 
   protected readonly postForm = form(this.postModel);
+  protected mensagem = '';
+  protected tipoMensagem: 'sucesso' | 'erro' | '' = '';
 
   protected atualizaPost(event: SubmitEvent) {
     event.preventDefault();
-    this.cadastroUsuarioService.atualizaPost(this.postModel()).subscribe({
+
+    const post = this.postModel();
+
+    if (post.id === null || post.id < 1) {
+      this.tipoMensagem = 'erro';
+      this.mensagem = 'Informe um ID de post válido para atualizar.';
+      return;
+    }
+
+    this.cadastroUsuarioService.atualizarPost(post.id, post).subscribe({
       next: () => {
-        alert('Atualização deu certo!');
+        this.tipoMensagem = 'sucesso';
+        this.mensagem = `O post #${post.id} foi atualizado com sucesso.`;
         this.postModel.set({
           id: null,
           userId: null,
@@ -38,7 +49,8 @@ export class CadastroUsuarioAtualizado {
       },
 
       error: () => {
-        alert('Algo deu errado');
+        this.tipoMensagem = 'erro';
+        this.mensagem = 'Não foi possível atualizar o post. Tente novamente.';
       }
     })
   }

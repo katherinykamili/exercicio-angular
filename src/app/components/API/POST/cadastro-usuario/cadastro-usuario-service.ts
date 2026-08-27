@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from './interface-cadastro-usuario';
+import { AtualizaPost } from '../../PUT/cadastro-usuario-atualizado/atualiza-post';
 
 @Injectable({ providedIn: 'root' })
 export class CadastroUsuarioService {
@@ -10,5 +11,9 @@ export class CadastroUsuarioService {
 
     cadastrarPostDoService(postCadastro:Post){
         return this.httpClient.post(this.urlAPI,postCadastro)
+    }
+
+    atualizarPost(id: number, postAtualizado: AtualizaPost) {
+        return this.httpClient.put<AtualizaPost>(`${this.urlAPI}/${id}`, postAtualizado);
     }
 }

@@ -1,10 +1,39 @@
-<form (submit)="atualizaPost($event)">
+<section class="update-section" aria-labelledby="update-title">
+  <header class="update-heading">
+    <div>
+      <span class="eyebrow">Integração com API</span>
+      <h2 id="update-title">Atualizar um post.</h2>
+    </div>
+    <p>Altere os dados de um post existente na API de demonstração JSONPlaceholder.</p>
+  </header>
 
-    <input type="text" inputmode="numeric" [formField]="postForm.id" placeholder="Id do post">
-    <input type="text" inputmode="numeric" [formField]="postForm.userId" placeholder="UserId">
-    <input type="text" [formField]="postForm.title" placeholder="Title">
-    <input type="text" [formField]="postForm.body" placeholder="Body">
+  <form class="update-form" (submit)="atualizaPost($event)">
+    <div class="field">
+      <label for="update-post-id">ID do post</label>
+      <input id="update-post-id" type="number" inputmode="numeric" [formField]="postForm.id" placeholder="Ex.: 1">
+    </div>
 
-    <button>Atualizar Post!</button>
+    <div class="field">
+      <label for="update-user-id">ID do usuário</label>
+      <input id="update-user-id" type="number" inputmode="numeric" [formField]="postForm.userId" placeholder="Ex.: 1">
+    </div>
 
-</form>
+    <div class="field field-wide">
+      <label for="update-post-title">Título</label>
+      <input id="update-post-title" type="text" [formField]="postForm.title" placeholder="Novo título do post">
+    </div>
+
+    <div class="field field-wide">
+      <label for="update-post-body">Conteúdo</label>
+      <textarea id="update-post-body" rows="5" [formField]="postForm.body" placeholder="Novo conteúdo do post"></textarea>
+    </div>
+
+    <button type="submit">Atualizar post</button>
+  </form>
+
+  @if (mensagem) {
+    <p class="feedback" [class.success]="tipoMensagem === 'sucesso'" [class.error]="tipoMensagem === 'erro'" aria-live="polite">
+      {{ mensagem }}
+    </p>
+  }
+</section>

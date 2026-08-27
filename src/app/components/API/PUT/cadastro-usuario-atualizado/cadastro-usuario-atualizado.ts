@@ -11,6 +11,7 @@ import { FormField, form } from '@angular/forms/signals';
   styleUrl: './cadastro-usuario-atualizado.css',
 })
 export class CadastroUsuarioAtualizado {
+
   protected readonly cadastroUsuarioService = inject(CadastroUsuarioService);
 
   protected readonly postModel = signal<AtualizaPost>({
@@ -24,7 +25,7 @@ export class CadastroUsuarioAtualizado {
   protected mensagem = '';
   protected tipoMensagem: 'sucesso' | 'erro' | '' = '';
 
-  protected atualizaPost(event: SubmitEvent) {
+  protected atualizaPost(event: SubmitEvent): void {
     event.preventDefault();
 
     const post = this.postModel();
@@ -36,9 +37,9 @@ export class CadastroUsuarioAtualizado {
     }
 
     this.cadastroUsuarioService.atualizarPost(post.id, post).subscribe({
-      next: () => {
+      next: (response) => {
         this.tipoMensagem = 'sucesso';
-        this.mensagem = `O post #${post.id} foi atualizado com sucesso.`;
+        this.mensagem = `O post #${response.id} foi atualizado com sucesso.`;
         this.postModel.set({
           id: null,
           userId: null,
